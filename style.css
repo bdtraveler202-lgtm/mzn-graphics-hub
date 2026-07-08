@@ -718,3 +718,20 @@ body.light .price-card{
 body.light footer{
     background:#e5e7eb;
 }
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .hero h1 {
+        font-size: 35px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+}
