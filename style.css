@@ -1,342 +1,167 @@
-/* ===============================
-   MZN Graphics Hub - Premium CSS
-================================= */
+/* ===================================
+   MZN Graphics Hub Premium Website
+=================================== */
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
 body{
-    font-family:'Poppins',sans-serif;
-    background:#0b1120;
-    color:#fff;
+
+font-family:'Poppins',sans-serif;
+background:#08111f;
+color:#fff;
+overflow-x:hidden;
+
+}
+
+img{
+
+max-width:100%;
+display:block;
+
+}
+
+a{
+
+text-decoration:none;
+
+}
+
+section{
+
+padding:100px 10%;
+
 }
 
 /* Navbar */
 
 header{
-    width:100%;
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:999;
-    background:rgba(11,17,32,.90);
-    backdrop-filter:blur(15px);
-    border-bottom:1px solid rgba(255,255,255,.08);
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:999;
+background:rgba(8,17,31,.92);
+backdrop-filter:blur(18px);
+border-bottom:1px solid rgba(255,255,255,.08);
+
 }
 
 .navbar{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:18px 0;
+
+max-width:1300px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px;
+
 }
 
 .logo{
-    font-size:30px;
-    font-weight:800;
+
+font-size:32px;
+font-weight:800;
+
 }
 
 .logo span{
-    color:#3b82f6;
+
+color:#3b82f6;
+
 }
 
-.nav-links{
-    display:flex;
-    list-style:none;
-    gap:30px;
+.navbar ul{
+
+display:flex;
+gap:35px;
+list-style:none;
+
 }
 
-.nav-links a{
-    color:#fff;
-    text-decoration:none;
-    transition:.3s;
+.navbar ul li a{
+
+color:white;
+transition:.3s;
+
 }
 
-.nav-links a:hover{
-    color:#3b82f6;
-}
+.navbar ul li a:hover{
 
-/* Buttons */
+color:#3b82f6;
+
+}
 
 .btn{
-    background:#2563eb;
-    color:#fff;
-    text-decoration:none;
-    padding:12px 28px;
-    border-radius:50px;
-    transition:.3s;
-    font-weight:600;
+
+background:#2563eb;
+padding:14px 30px;
+border-radius:50px;
+color:white;
+display:inline-block;
+transition:.35s;
+
 }
 
 .btn:hover{
-    background:#1d4ed8;
-    transform:translateY(-3px);
-}
 
-.btn-outline{
-    margin-left:15px;
-    border:2px solid #3b82f6;
-    color:#3b82f6;
-    text-decoration:none;
-    padding:11px 28px;
-    border-radius:50px;
-    transition:.3s;
-}
+transform:translateY(-5px);
+box-shadow:0 15px 40px rgba(37,99,235,.45);
 
-.btn-outline:hover{
-    background:#3b82f6;
-    color:white;
 }
 
 /* Hero */
 
 .hero{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:60px;
-    padding-top:120px;
+
+min-height:100vh;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:60px;
+padding-top:150px;
+
 }
 
 .hero-text{
-    flex:1;
-}
-
-.hero-text h1{
-    font-size:60px;
-    line-height:1.2;
-    margin-bottom:20px;
-}
-
-.hero-text p{
-    color:#cbd5e1;
-    font-size:18px;
-    line-height:1.8;
-    margin-bottom:35px;
-}
-
-.hero-image{
-    flex:1;
-    text-align:center;
-}
-
-.hero-image img{
-    width:100%;
-    max-width:520px;
-    border-radius:20px;
-}
-
-/* Services */
-
-.services{
-    width:90%;
-    max-width:1200px;
-    margin:100px auto;
-}
-
-.services h2{
-    text-align:center;
-    font-size:42px;
-    margin-bottom:50px;
-}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:#111827;
-    padding:35px;
-    border-radius:18px;
-    text-align:center;
-    transition:.35s;
-    border:1px solid rgba(255,255,255,.08);
-}
-
-.card:hover{
-    transform:translateY(-12px);
-    border-color:#3b82f6;
-    box-shadow:0 15px 40px rgba(37,99,235,.25);
-}
-
-.card h3{
-    margin-bottom:15px;
-    color:#60a5fa;
-}
-
-.card p{
-    color:#cbd5e1;
-}
-
-/* Footer */
-
-footer{
-    text-align:center;
-    padding:70px 20px;
-    border-top:1px solid rgba(255,255,255,.08);
-    color:#94a3b8;
-}
-
-footer h2{
-    color:white;
-    margin-bottom:10px;
-}
-
-/* Responsive */
-
-@media(max-width:900px){
-
-.hero{
-flex-direction:column;
-text-align:center;
-}
-
-.hero-text h1{
-font-size:40px;
-}
-
-.nav-links{
-display:none;
-}
-
-.btn{
-padding:10px 22px;
-}
-
-}
-/* ABOUT SECTION */
-
-.about{
-
-padding:100px 10%;
-
-background:#111827;
-
-}
-
-.container{
-
-display:flex;
-
-align-items:center;
-
-justify-content:space-between;
-
-gap:70px;
-
-flex-wrap:wrap;
-
-}
-
-.about-image img{
-
-width:450px;
-
-border-radius:20px;
-
-box-shadow:0 20px 50px rgba(0,0,0,.4);
-
-}
-
-.about-content{
 
 flex:1;
 
 }
 
-.about-content h2{
+.hero-text h1{
 
-font-size:42px;
-
-color:#3b82f6;
-
-margin-bottom:15px;
+font-size:65px;
+line-height:1.2;
+margin-bottom:25px;
 
 }
 
-.about-content h3{
+.hero-text p{
 
-font-size:28px;
-
-margin-bottom:20px;
-
-}
-
-.about-content p{
-
-font-size:18px;
-
+font-size:19px;
+color:#cbd5e1;
 line-height:1.8;
-
-color:#ccc;
-
-margin-bottom:30px;
+margin-bottom:35px;
 
 }
 
-.about-info{
+.hero-image{
 
-display:flex;
-
-gap:40px;
-
-margin-bottom:30px;
-
-}
-
-.about-info h4{
-
-font-size:32px;
-
-color:#3b82f6;
-
-}
-
-.about-info span{
-
-color:#aaa;
-
-}
-
-@media(max-width:900px){
-
-.container{
-
-flex-direction:column;
-
+flex:1;
 text-align:center;
 
 }
 
-.about-image img{
+.hero-image img{
 
-width:100%;
-
-}
-
-.about-info{
-
-justify-content:center;
+max-width:550px;
+border-radius:25px;
+box-shadow:0 25px 60px rgba(37,99,235,.25);
 
 }
-
-}
-
-
-
-
-
-
