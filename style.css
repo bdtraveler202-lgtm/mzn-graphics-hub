@@ -559,3 +559,46 @@ justify-content:center;
 }
 
 }
+/* Smooth Animation */
+
+.hero-image img{
+
+animation:float 4s ease-in-out infinite;
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-15px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+.card{
+
+transition:.4s;
+
+}
+
+.card:hover{
+
+transform:translateY(-12px);
+
+box-shadow:0 15px 40px rgba(37,99,235,.35);
+
+}
