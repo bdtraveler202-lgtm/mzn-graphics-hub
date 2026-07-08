@@ -55,3 +55,23 @@ themeBtn.innerHTML='<i class="fas fa-moon"></i>';
 }
 
 });
+document.getElementById("contactForm").addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
+
+    if(name && email && message){
+        document.getElementById("formMessage").innerHTML =
+        "Message sent successfully!";
+        
+        this.reset();
+    }
+    else{
+        document.getElementById("formMessage").innerHTML =
+        "Please fill all fields!";
+    }
+
+});
