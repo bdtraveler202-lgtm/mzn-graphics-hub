@@ -36,3 +36,22 @@ const navMenu = document.querySelector(".navbar ul");
 menuToggle.addEventListener("click", () => {
     navMenu.classList.toggle("active");
 });
+// Theme Toggle
+
+const themeBtn = document.getElementById("theme-toggle");
+
+themeBtn.addEventListener("click",()=>{
+
+document.body.classList.toggle("light");
+
+if(document.body.classList.contains("light")){
+
+themeBtn.innerHTML='<i class="fas fa-sun"></i>';
+
+}else{
+
+themeBtn.innerHTML='<i class="fas fa-moon"></i>';
+
+}
+
+});
