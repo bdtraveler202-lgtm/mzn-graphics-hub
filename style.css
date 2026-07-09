@@ -630,17 +630,3 @@ body.light footer{
     background:#2563eb;
     border-radius:20px;
 }
-.hero-image{
-    flex:1;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-.hero-image img{
-    width:100%;
-    max-width:500px;
-    border-radius:20px;
-    animation:float 4s ease-in-out infinite;
-    box-shadow:0 20px 50px rgba(37,99,235,.25);
-}
