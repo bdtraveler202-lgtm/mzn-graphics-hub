@@ -99,7 +99,7 @@ if (contactForm) {
         emailjs.sendForm(
 
             "service_oyikn29",
-            "template_atibmck",
+            "template_6j2mcqd",
             this
 
         ).then(function () {
