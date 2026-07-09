@@ -1,77 +1,121 @@
-const topBtn=document.getElementById("topBtn");
+// =========================
+// Loader
+// =========================
 
-window.onscroll=function(){
+window.addEventListener("load", function () {
+    const loader = document.getElementById("loader");
 
-if(document.body.scrollTop>300 || document.documentElement.scrollTop>300){
+    if (loader) {
+        loader.style.display = "none";
+    }
+});
 
-topBtn.style.display="block";
+// =========================
+// Back To Top Button
+// =========================
 
-}else{
+const topBtn = document.getElementById("topBtn");
 
-topBtn.style.display="none";
+window.addEventListener("scroll", function () {
 
-}
+    if (!topBtn) return;
 
-}
-
-topBtn.onclick=function(){
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
+    if (window.scrollY > 300) {
+        topBtn.style.display = "block";
+    } else {
+        topBtn.style.display = "none";
+    }
 
 });
 
+if (topBtn) {
+
+    topBtn.addEventListener("click", function () {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    });
+
 }
-window.addEventListener("load",()=>{
 
-document.getElementById("loader").style.display="none";
+// =========================
+// Mobile Menu
+// =========================
 
-});
 const menuToggle = document.getElementById("menu-toggle");
-const navMenu = document.querySelector(".navbar ul");
+const navMenu = document.querySelector(".nav-links");
 
-menuToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-});
-// Theme Toggle
+if (menuToggle && navMenu) {
 
-const themeBtn = document.getElementById("theme-toggle");
+    menuToggle.addEventListener("click", function () {
 
-themeBtn.addEventListener("click",()=>{
+        navMenu.classList.toggle("active");
 
-document.body.classList.toggle("light");
-
-if(document.body.classList.contains("light")){
-
-themeBtn.innerHTML='<i class="fas fa-sun"></i>';
-
-}else{
-
-themeBtn.innerHTML='<i class="fas fa-moon"></i>';
+    });
 
 }
 
-});
-document.getElementById("contactForm").addEventListener("submit", function(e){
+// =========================
+// Dark / Light Mode
+// =========================
 
-    e.preventDefault();
+const themeBtn = document.getElementById("themeBtn");
 
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let message = document.getElementById("message").value;
+if (themeBtn) {
 
-    if(name && email && message){
-        document.getElementById("formMessage").innerHTML =
-        "Message sent successfully!";
-        
-        this.reset();
-    }
-    else{
-        document.getElementById("formMessage").innerHTML =
-        "Please fill all fields!";
-    }
+    themeBtn.addEventListener("click", function () {
 
-});
+        document.body.classList.toggle("light");
+
+        if (document.body.classList.contains("light")) {
+
+            themeBtn.innerHTML = '<i class="fas fa-sun"></i>';
+
+        } else {
+
+            themeBtn.innerHTML = '<i class="fas fa-moon"></i>';
+
+        }
+
+    });
+
+}
+
+// =========================
+// EmailJS Contact Form
+// =========================
+
+const contactForm = document.getElementById("contact-form");
+
+if (contactForm) {
+
+    contactForm.addEventListener("submit", function (e) {
+
+        e.preventDefault();
+
+        emailjs.sendForm(
+
+            "service_oyikn29",
+            "YOUR_TEMPLATE_ID",
+            this
+
+        ).then(function () {
+
+            alert("✅ Message Sent Successfully!");
+
+            contactForm.reset();
+
+        }).catch(function (error) {
+
+            alert("❌ Failed to send message!");
+
+            console.log(error);
+
+        });
+
+    });
+
+}
