@@ -108,14 +108,4 @@ if (contactForm) {
 
             contactForm.reset();
 
-        }).catch(function (error) {
-
-            alert("❌ Failed to send message!");
-
-            console.log(error);
-
-        });
-
-    });
-
-}
+        }).
