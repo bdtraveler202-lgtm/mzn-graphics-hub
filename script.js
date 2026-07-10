@@ -89,3 +89,96 @@ if (contactForm) {
         });
     });
 }
+const popup=document.getElementById("popup");
+const title=document.getElementById("popup-title");
+const files=document.getElementById("popup-files");
+
+function openPSD(){
+
+popup.style.display="flex";
+
+title.innerHTML="PSD Files";
+
+files.innerHTML=`
+
+<div class="file">
+
+Poster Design.psd
+
+<a href="downloads/Poster.psd" download class="btn">
+
+Download
+
+</a>
+
+</div>
+
+<div class="file">
+
+Logo Mockup.psd
+
+<a href="downloads/Logo.psd" download class="btn">
+
+Download
+
+</a>
+
+</div>
+
+`;
+
+}
+
+function openPLP(){
+
+popup.style.display="flex";
+
+title.innerHTML="PLP Files";
+
+files.innerHTML=`
+
+<div class="file">
+
+Thumbnail.plp
+
+<a href="downloads/Thumbnail.plp" download class="btn">
+
+Download
+
+</a>
+
+</div>
+
+`;
+
+}
+
+function openAI(){
+
+popup.style.display="flex";
+
+title.innerHTML="AI Files";
+
+files.innerHTML=`
+
+<div class="file">
+
+Business Card.ai
+
+<a href="downloads/Card.ai" download class="btn">
+
+Download
+
+</a>
+
+</div>
+
+`;
+
+}
+
+function closePopup(){
+
+popup.style.display="none";
+
+}
