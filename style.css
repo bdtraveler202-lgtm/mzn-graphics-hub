@@ -1012,3 +1012,79 @@ transform:scale(1.2);
 .resource-buttons .btn{
     padding:14px 20px;
 }
+/* ==========================
+   IMAGE LIGHTBOX
+========================== */
+
+.lightbox{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:rgba(0,0,0,.92);
+
+display:none;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:99999;
+
+}
+
+.lightbox img{
+
+max-width:90%;
+
+max-height:90%;
+
+border-radius:15px;
+
+animation:zoom .3s;
+
+}
+
+.close-lightbox{
+
+position:absolute;
+
+top:25px;
+
+right:35px;
+
+font-size:45px;
+
+color:white;
+
+cursor:pointer;
+
+}
+
+@keyframes zoom{
+
+from{
+
+transform:scale(.8);
+
+opacity:0;
+
+}
+
+to{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+}
+
