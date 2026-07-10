@@ -1248,3 +1248,46 @@ font-weight:700;
 z-index:20;
 
 }
+.resource-info{
+
+display:flex;
+
+justify-content:space-between;
+
+margin:12px 0;
+
+font-size:14px;
+
+color:#94a3b8;
+
+}
+
+.file-type{
+
+background:#2563eb;
+
+padding:4px 12px;
+
+border-radius:20px;
+
+color:white;
+
+font-size:12px;
+
+}
+
+.upload-date{
+
+font-size:13px;
+
+}
+
+.download-count{
+
+margin:15px 0;
+
+font-weight:600;
+
+color:#fff;
+
+}
