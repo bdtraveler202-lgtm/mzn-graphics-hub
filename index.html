@@ -379,8 +379,9 @@ placeholder="Search PSD, AI, PLP Files...">
 <i class="far fa-heart"></i>
 </div>
 
-<img src="images/thumb1.jpg" alt="PSD File">
-
+<img src="images/thumb1.jpg"
+class="preview-img"
+alt="PSD">
 <h3>Business Flyer PSD</h3>
 
 <p>PSD • 32 MB</p>
@@ -590,7 +591,15 @@ emailjs.init("RMJn9H2SsACX0_c3w");
 <!-- Main JS -->
 
 <script src="script.js"></script>
+<!-- Lightbox -->
 
+<div id="lightbox" class="lightbox">
+
+<span class="close-lightbox">&times;</span>
+
+<img id="lightbox-img" src="" alt="Preview">
+
+</div>
 </body>
 
 </html>
