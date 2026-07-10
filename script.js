@@ -214,3 +214,70 @@ card.style.display=text.includes(value)?"block":"none";
 });
 
 }
+// =========================
+// Resource Filter
+// =========================
+
+const filterButtons = document.querySelectorAll(".filter-buttons button");
+const cards = document.querySelectorAll(".resource-card");
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        filterButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        const filter = button.dataset.filter;
+
+        cards.forEach(card => {
+
+            if (filter === "all") {
+
+                card.style.display = "block";
+
+            } else {
+
+                card.style.display =
+                    card.dataset.category === filter
+                        ? "block"
+                        : "none";
+
+            }
+
+        });
+
+    });
+
+});
+const searchInput = document.getElementById("searchInput");
+
+if (searchInput) {
+
+    searchInput.addEventListener("keyup", function () {
+
+        const value = this.value.toLowerCase();
+
+        cards.forEach(card => {
+
+            const text = card.innerText.toLowerCase();
+
+            card.style.display =
+                text.includes(value)
+                    ? "block"
+                    : "none";
+
+        });
+
+    });
+
+}
+document.querySelectorAll(".favorite").forEach(item => {
+
+    item.addEventListener("click", function () {
+
+        this.classList.toggle("active");
+
+    });
+
+});
