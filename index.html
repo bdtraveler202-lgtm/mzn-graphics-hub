@@ -355,13 +355,13 @@ placeholder="Search PSD, AI, PLP Files...">
 
 <div class="filter-buttons">
 
-<button class="active">All</button>
+<button class="active" data-filter="all">All</button>
 
-<button>PSD</button>
+<button data-filter="psd">PSD</button>
 
-<button>AI</button>
+<button data-filter="ai">AI</button>
 
-<button>PLP</button>
+<button data-filter="plp">PLP</button>
 
 </div>
 
@@ -369,7 +369,9 @@ placeholder="Search PSD, AI, PLP Files...">
 
 <!-- এখান থেকে Resource Card শুরু -->
 
-<div class="resource-card">
+<div class="resource-card" data-category="psd">
+<div class="resource-card" data-category="ai">
+<div class="resource-card" data-category="plp">
 
 <span class="premium">⭐ Premium</span>
 
