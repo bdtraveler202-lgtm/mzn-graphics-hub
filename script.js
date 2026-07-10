@@ -320,3 +320,10 @@ lightbox.style.display="none";
 }
 
 });
+// ======================
+// Favorite Save
+// ======================
+
+document.querySelectorAll(".favorite").forEach((btn,index)=>{
+
+const key="favorite
