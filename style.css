@@ -841,3 +841,39 @@ justify-content:space-between;
 align-items:center;
 
 }
+.search-box{
+max-width:500px;
+margin:40px auto;
+position:relative;
+}
+
+.search-box input{
+
+width:100%;
+padding:18px 60px 18px 25px;
+
+background:#1f2937;
+
+border:none;
+
+border-radius:50px;
+
+color:white;
+
+font-size:16px;
+
+}
+
+.search-box i{
+
+position:absolute;
+
+right:25px;
+
+top:18px;
+
+color:#3b82f6;
+
+font-size:20px;
+
+}
