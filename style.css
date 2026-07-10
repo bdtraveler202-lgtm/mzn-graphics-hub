@@ -984,3 +984,31 @@ color:#ff2d55;
 transform:scale(1.2);
 
 }
+.resource-buttons{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    margin-top:20px;
+}
+
+.resource-buttons a{
+    flex:1;
+    text-align:center;
+}
+
+.btn-outline{
+    padding:14px 20px;
+    border:2px solid #2563eb;
+    color:#fff;
+    border-radius:50px;
+    transition:.3s;
+}
+
+.btn-outline:hover{
+    background:#2563eb;
+}
+
+.resource-buttons .btn{
+    padding:14px 20px;
+}
