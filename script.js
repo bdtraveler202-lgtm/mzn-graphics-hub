@@ -195,3 +195,22 @@ icon.style.color="#ff3b5c";
 });
 
 });
+const search=document.getElementById("searchInput");
+
+if(search){
+
+search.addEventListener("keyup",function(){
+
+let value=this.value.toLowerCase();
+
+document.querySelectorAll(".resource-card").forEach(card=>{
+
+let text=card.innerText.toLowerCase();
+
+card.style.display=text.includes(value)?"block":"none";
+
+});
+
+});
+
+}
