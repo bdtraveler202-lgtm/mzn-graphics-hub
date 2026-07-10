@@ -182,3 +182,16 @@ function closePopup(){
 popup.style.display="none";
 
 }
+document.querySelectorAll(".favorite i").forEach(icon=>{
+
+icon.addEventListener("click",()=>{
+
+icon.classList.toggle("fas");
+
+icon.classList.toggle("far");
+
+icon.style.color="#ff3b5c";
+
+});
+
+});
