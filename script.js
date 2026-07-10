@@ -327,3 +327,34 @@ lightbox.style.display="none";
 document.querySelectorAll(".favorite").forEach((btn,index)=>{
 
 const key="favorite
+const popup = document.getElementById("popup");
+const popupTitle = document.getElementById("popup-title");
+const popupFiles = document.getElementById("popup-files");
+
+function openPSD() {
+    popupTitle.textContent = "PSD Files";
+    popupFiles.innerHTML = `
+        <a href="downloads/flyer.psd" download class="btn">Download Flyer PSD</a>
+    `;
+    popup.style.display = "flex";
+}
+
+function openPLP() {
+    popupTitle.textContent = "PLP Files";
+    popupFiles.innerHTML = `
+        <a href="downloads/project.plp" download class="btn">Download PLP File</a>
+    `;
+    popup.style.display = "flex";
+}
+
+function openAI() {
+    popupTitle.textContent = "AI Files";
+    popupFiles.innerHTML = `
+        <a href="downloads/logo.ai" download class="btn">Download AI File</a>
+    `;
+    popup.style.display = "flex";
+}
+
+function closePopup() {
+    popup.style.display = "none";
+}
