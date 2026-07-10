@@ -977,3 +977,10 @@ color:white;
     font-size:22px;
     cursor:pointer;
 }
+.favorite.active{
+
+color:#ff2d55;
+
+transform:scale(1.2);
+
+}
