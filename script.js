@@ -1,223 +1,191 @@
-// =========================
+/*=====================================
+MZN Graphics Hub V2
+Premium JavaScript
+======================================*/
+
+
+// ==============================
 // Loader
-// =========================
-window.addEventListener("load", function () {
+// ==============================
+
+window.addEventListener("load", () => {
+
     const loader = document.getElementById("loader");
-    if (loader) loader.style.display = "none";
-});
 
-// =========================
-// Back To Top Button
-// =========================
-const topBtn = document.getElementById("topBtn");
+    if(loader){
 
-window.addEventListener("scroll", function () {
-    if (!topBtn) return;
+        loader.style.opacity="0";
 
-    if (window.scrollY > 300) {
-        topBtn.style.display = "block";
-    } else {
-        topBtn.style.display = "none";
+        setTimeout(()=>{
+
+            loader.style.display="none";
+
+        },500);
+
     }
+
 });
 
-if (topBtn) {
-    topBtn.addEventListener("click", function () {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    });
+
+
+// ==============================
+// AOS
+// ==============================
+
+if(typeof AOS!=="undefined"){
+
+AOS.init({
+
+duration:1000,
+
+once:true
+
+});
+
 }
 
-// =========================
+
+
+// ==============================
 // Mobile Menu
-// =========================
-const menuToggle = document.getElementById("menu-toggle");
-const navMenu = document.querySelector(".nav-links");
+// ==============================
 
-if (menuToggle && navMenu) {
-    menuToggle.addEventListener("click", function () {
-        navMenu.classList.toggle("active");
-    });
-}
+const menuToggle=document.querySelector(".menu-toggle");
 
-// =========================
-// Dark / Light Mode
-// =========================
-const themeBtn = document.getElementById("themeBtn");
+const navLinks=document.querySelector(".nav-links");
 
-themeBtn.addEventListener("click", function () {
+if(menuToggle){
 
-    document.body.classList.toggle("light");
+menuToggle.addEventListener("click",()=>{
 
-    if(document.body.classList.contains("light")){
-        themeBtn.innerHTML='<i class="fas fa-sun"></i>';
-    }else{
-        themeBtn.innerHTML='<i class="fas fa-moon"></i>';
-    }
+navLinks.classList.toggle("active");
 
 });
-// =========================
-// EmailJS Contact Form
-// =========================
-const contactForm = document.getElementById("contact-form");
 
-if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-        e.preventDefault();
+}
 
-        emailjs.sendForm(
-            "service_oyikn29",
-            "template_6j2mcqd",
-            this,
-            "RMJn9H2SsACX0_c3w"
-        )
-        .then(() => {
-            alert("✅ Message Sent Successfully!");
-            contactForm.reset();
-        })
-        .catch((error) => {
-            console.error("EmailJS Error:", error);
+document.querySelectorAll(".nav-links a").forEach(link=>{
 
-            if (error && error.text) {
-                alert("❌ " + error.text);
-            } else {
-                alert("❌ Failed to send message!\n\nCheck Console (F12) for details.");
-            }
+link.addEventListener("click",()=>{
+
+navLinks.classList.remove("active");
+
+});
+
+});
+
+
+
+// ==============================
+// Back To Top
+// ==============================
+
+const topBtn=document.getElementById("topBtn");
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>300){
+
+topBtn.style.display="flex";
+
+}else{
+
+topBtn.style.display="none";
+
+}
+
+});
+
+if(topBtn){
+
+topBtn.onclick=()=>{
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+};
+
+}
+
+
+
+// ==============================
+// Theme Toggle
+// ==============================
+
+const themeBtn=document.getElementById("themeBtn");
+
+const savedTheme=localStorage.getItem("theme");
+
+if(savedTheme==="light"){
+
+document.body.classList.add("light");
+
+themeBtn.innerHTML='<i class="fas fa-sun"></i>';
+
+}
+
+if(themeBtn){
+
+themeBtn.addEventListener("click",()=>{
+
+document.body.classList.toggle("light");
+
+if(document.body.classList.contains("light")){
+
+localStorage.setItem("theme","light");
+
+themeBtn.innerHTML='<i class="fas fa-sun"></i>';
+
+}else{
+
+localStorage.setItem("theme","dark");
+
+themeBtn.innerHTML='<i class="fas fa-moon"></i>';
+
+}
+
+});
+
+}
+/*=====================================
+SEARCH
+======================================*/
+
+const searchInput = document.getElementById("searchInput");
+
+if (searchInput) {
+
+    searchInput.addEventListener("keyup", function () {
+
+        const value = this.value.toLowerCase();
+
+        document.querySelectorAll(".resource-card").forEach(card => {
+
+            const text = card.innerText.toLowerCase();
+
+            card.style.display = text.includes(value)
+                ? "block"
+                : "none";
+
         });
+
     });
-}
-const popup=document.getElementById("popup");
-const title=document.getElementById("popup-title");
-const files=document.getElementById("popup-files");
-
-function openPSD(){
-
-popup.style.display="flex";
-
-title.innerHTML="PSD Files";
-
-files.innerHTML=`
-
-<div class="file">
-
-Poster Design.psd
-
-<a href="downloads/Poster.psd" download class="btn">
-
-Download
-
-</a>
-
-</div>
-
-<div class="file">
-
-Logo Mockup.psd
-
-<a href="downloads/Logo.psd" download class="btn">
-
-Download
-
-</a>
-
-</div>
-
-`;
 
 }
 
-function openPLP(){
 
-popup.style.display="flex";
-
-title.innerHTML="PLP Files";
-
-files.innerHTML=`
-
-<div class="file">
-
-Thumbnail.plp
-
-<a href="downloads/Thumbnail.plp" download class="btn">
-
-Download
-
-</a>
-
-</div>
-
-`;
-
-}
-
-function openAI(){
-
-popup.style.display="flex";
-
-title.innerHTML="AI Files";
-
-files.innerHTML=`
-
-<div class="file">
-
-Business Card.ai
-
-<a href="downloads/Card.ai" download class="btn">
-
-Download
-
-</a>
-
-</div>
-
-`;
-
-}
-
-function closePopup(){
-
-popup.style.display="none";
-
-}
-document.querySelectorAll(".favorite i").forEach(icon=>{
-
-icon.addEventListener("click",()=>{
-
-icon.classList.toggle("fas");
-
-icon.classList.toggle("far");
-
-icon.style.color="#ff3b5c";
-
-});
-
-});
-const search=document.getElementById("searchInput");
-
-if(search){
-
-search.addEventListener("keyup",function(){
-
-let value=this.value.toLowerCase();
-
-document.querySelectorAll(".resource-card").forEach(card=>{
-
-let text=card.innerText.toLowerCase();
-
-card.style.display=text.includes(value)?"block":"none";
-
-});
-
-});
-
-}
-// =========================
-// Resource Filter
-// =========================
+/*=====================================
+FILTER
+======================================*/
 
 const filterButtons = document.querySelectorAll(".filter-buttons button");
+
 const cards = document.querySelectorAll(".resource-card");
 
 filterButtons.forEach(button => {
@@ -225,6 +193,7 @@ filterButtons.forEach(button => {
     button.addEventListener("click", () => {
 
         filterButtons.forEach(btn => btn.classList.remove("active"));
+
         button.classList.add("active");
 
         const filter = button.dataset.filter;
@@ -239,8 +208,8 @@ filterButtons.forEach(button => {
 
                 card.style.display =
                     card.dataset.category === filter
-                        ? "block"
-                        : "none";
+                    ? "block"
+                    : "none";
 
             }
 
@@ -249,136 +218,299 @@ filterButtons.forEach(button => {
     });
 
 });
-const searchInput = document.getElementById("searchInput");
 
-if (searchInput) {
 
-    searchInput.addEventListener("keyup", function () {
+/*=====================================
+FAVORITE
+======================================*/
 
-        const value = this.value.toLowerCase();
+document.querySelectorAll(".favorite").forEach((btn, index) => {
 
-        cards.forEach(card => {
+    const key = "favorite_" + index;
 
-            const text = card.innerText.toLowerCase();
+    if (localStorage.getItem(key) === "true") {
 
-            card.style.display =
-                text.includes(value)
-                    ? "block"
-                    : "none";
+        btn.classList.add("active");
+
+    }
+
+    btn.addEventListener("click", () => {
+
+        btn.classList.toggle("active");
+
+        localStorage.setItem(
+            key,
+            btn.classList.contains("active")
+        );
+
+    });
+
+});
+
+
+/*=====================================
+LIGHTBOX PREVIEW
+======================================*/
+
+const previewImages = document.querySelectorAll(".preview-img");
+
+const lightbox = document.getElementById("lightbox");
+
+const lightboxImg = document.getElementById("lightbox-img");
+
+const closeLightbox = document.querySelector(".close-lightbox");
+
+previewImages.forEach(img => {
+
+    img.addEventListener("click", () => {
+
+        lightbox.style.display = "flex";
+
+        lightboxImg.src = img.src;
+
+    });
+
+});
+
+if (closeLightbox) {
+
+    closeLightbox.addEventListener("click", () => {
+
+        lightbox.style.display = "none";
+
+    });
+
+}
+
+if (lightbox) {
+
+    lightbox.addEventListener("click", e => {
+
+        if (e.target === lightbox) {
+
+            lightbox.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+/*=====================================
+DOWNLOAD COUNTER
+======================================*/
+
+document.querySelectorAll(".resource-card").forEach((card, index) => {
+
+    const downloadBtn = card.querySelector(".btn");
+
+    const counter = card.querySelector(".download-count span");
+
+    const key = "downloads_" + index;
+
+    let count = Number(localStorage.getItem(key));
+
+    if (!count) {
+
+        count = Number(counter.innerText.replace(/,/g, ""));
+
+    }
+
+    counter.innerText = count.toLocaleString();
+
+    if (downloadBtn) {
+
+        downloadBtn.addEventListener("click", () => {
+
+            count++;
+
+            counter.innerText = count.toLocaleString();
+
+            localStorage.setItem(key, count);
+
+        });
+
+    }
+
+});
+/*=====================================
+EMAILJS CONTACT FORM
+======================================*/
+
+const contactForm = document.getElementById("contact-form");
+
+if (contactForm) {
+
+    contactForm.addEventListener("submit", function (e) {
+
+        e.preventDefault();
+
+        const submitBtn = this.querySelector("button");
+
+        const oldText = submitBtn.innerHTML;
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = "Sending...";
+
+        emailjs.sendForm(
+
+            "YOUR_SERVICE_ID",
+            "YOUR_TEMPLATE_ID",
+            this,
+            "YOUR_PUBLIC_KEY"
+
+        ).then(() => {
+
+            alert("✅ Message Sent Successfully!");
+
+            contactForm.reset();
+
+        }).catch((error) => {
+
+            console.error(error);
+
+            alert("❌ Failed to send message!");
+
+        }).finally(() => {
+
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = oldText;
 
         });
 
     });
 
 }
-document.querySelectorAll(".favorite").forEach(item => {
 
-    item.addEventListener("click", function () {
 
-        this.classList.toggle("active");
+/*=====================================
+ACTIVE NAVIGATION
+======================================*/
+
+const sections = document.querySelectorAll("section");
+const navItems = document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const sectionTop = section.offsetTop - 120;
+
+        if (window.scrollY >= sectionTop) {
+
+            current = section.getAttribute("id");
+
+        }
+
+    });
+
+    navItems.forEach(link => {
+
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === "#" + current) {
+
+            link.classList.add("active");
+
+        }
 
     });
 
 });
-// =========================
-// IMAGE PREVIEW
-// =========================
 
-const previewImages=document.querySelectorAll(".preview-img");
 
-const lightbox=document.getElementById("lightbox");
+/*=====================================
+COUNTER ANIMATION
+======================================*/
 
-const lightboxImg=document.getElementById("lightbox-img");
+const counters = document.querySelectorAll(".info-box h4");
 
-const closeBtn=document.querySelector(".close-lightbox");
+const runCounter = (counter) => {
 
-previewImages.forEach(img=>{
+    const target = parseInt(counter.innerText);
 
-img.addEventListener("click",()=>{
+    if (isNaN(target)) return;
 
-lightbox.style.display="flex";
+    let value = 0;
 
-lightboxImg.src=img.src;
+    const speed = Math.max(1, Math.floor(target / 60));
 
-});
+    const update = () => {
 
-});
+        value += speed;
 
-closeBtn.addEventListener("click",()=>{
+        if (value >= target) {
 
-lightbox.style.display="none";
+            counter.innerText = target + "+";
 
-});
+        } else {
 
-lightbox.addEventListener("click",(e)=>{
+            counter.innerText = value + "+";
 
-if(e.target===lightbox){
+            requestAnimationFrame(update);
 
-lightbox.style.display="none";
+        }
 
-}
+    };
 
-});
-// ======================
-// Favorite Save
-// ======================
+    update();
 
-document.querySelectorAll(".favorite").forEach((btn,index)=>{
+};
 
-const key="favorite
-const popup = document.getElementById("popup");
-const popupTitle = document.getElementById("popup-title");
-const popupFiles = document.getElementById("popup-files");
+const observer = new IntersectionObserver((entries) => {
 
-function openPSD() {
-    popupTitle.textContent = "PSD Files";
-    popupFiles.innerHTML = `
-        <a href="downloads/flyer.psd" download class="btn">Download Flyer PSD</a>
-    `;
-    popup.style.display = "flex";
-}
+    entries.forEach(entry => {
 
-function openPLP() {
-    popupTitle.textContent = "PLP Files";
-    popupFiles.innerHTML = `
-        <a href="downloads/project.plp" download class="btn">Download PLP File</a>
-    `;
-    popup.style.display = "flex";
-}
+        if (entry.isIntersecting) {
 
-function openAI() {
-    popupTitle.textContent = "AI Files";
-    popupFiles.innerHTML = `
-        <a href="downloads/logo.ai" download class="btn">Download AI File</a>
-    `;
-    popup.style.display = "flex";
-}
+            runCounter(entry.target);
 
-function closePopup() {
-    popup.style.display = "none";
-}
-// =========================
-// Lightbox
-// =========================
+            observer.unobserve(entry.target);
 
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-const closeLightbox = document.querySelector(".close-lightbox");
+        }
 
-document.querySelectorAll(".preview-img").forEach(img => {
-    img.addEventListener("click", function () {
-        lightbox.style.display = "flex";
-        lightboxImg.src = this.src;
-        lightboxImg.alt = this.alt;
     });
+
 });
 
-closeLightbox.addEventListener("click", function () {
-    lightbox.style.display = "none";
+counters.forEach(counter => observer.observe(counter));
+
+
+/*=====================================
+SMOOTH SCROLL
+======================================*/
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+    link.addEventListener("click", function (e) {
+
+        const target = document.querySelector(this.getAttribute("href"));
+
+        if (target) {
+
+            e.preventDefault();
+
+            window.scrollTo({
+
+                top: target.offsetTop - 80,
+
+                behavior: "smooth"
+
+            });
+
+        }
+
+    });
+
 });
 
-lightbox.addEventListener("click", function (e) {
-    if (e.target === lightbox) {
-        lightbox.style.display = "none";
-    }
-});
+
+/*=====================================
+CONSOLE MESSAGE
+======================================*/
+
+console.log("%cMZN Graphics Hub", "font-size:28px;color:#3b82f6;font-weight:bold;");
+console.log("%cWebsite Developed by Mezanur Rahman", "color:#22c55e;font-size:14px;");
