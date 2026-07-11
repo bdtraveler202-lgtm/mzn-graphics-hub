@@ -1309,3 +1309,35 @@ color:#fff;
     font-size:40px;
     cursor:pointer;
 }
+body.light,
+body.light .hero,
+body.light .about,
+body.light .services,
+body.light .pricing,
+body.light .contact,
+body.light .resources{
+    background:#f5f7fb;
+    color:#222;
+}
+
+body.light p,
+body.light span,
+body.light li{
+    color:#444;
+}
+
+body.light .service-card,
+body.light .price-card,
+body.light .resource-card,
+body.light .info-box,
+body.light footer{
+    background:#fff;
+    color:#222;
+}
+
+body.light input,
+body.light textarea{
+    background:#fff;
+    color:#222;
+    border:1px solid #ddd;
+}
