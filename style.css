@@ -513,41 +513,33 @@ footer p{
     cursor:pointer;
     margin-right:15px;
 }
-
 body.light{
-    background:#f8fafc;
-    color:#111827;
+    background:#f5f7fb;
+    color:#222;
 }
 
 body.light header{
     background:#ffffff;
 }
 
-body.light .about,
-body.light .pricing{
-    background:#f1f5f9;
-}
-
-body.light .services,
-body.light .contact{
+body.light .navbar{
     background:#ffffff;
 }
 
 body.light .service-card,
 body.light .price-card,
-body.light .stats div{
-    background:#ffffff;
-    color:#111827;
-}
-
-body.light .service-card p,
-body.light .price-card li,
-body.light .about-content p{
-    color:#475569;
-}
-
+body.light .resource-card,
 body.light footer{
-    background:#e2e8f0;
+    background:#ffffff;
+    color:#222;
+}
+
+body.light a{
+    color:#222;
+}
+
+body.light .logo{
+    color:#111;
 }
 
 /*=====================================
