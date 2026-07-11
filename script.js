@@ -50,7 +50,7 @@ once:true
 // Mobile Menu
 // ==============================
 
-const menuToggle=document.querySelector(".menu-toggle");
+const menuToggle = document.getElementById("menu-toggle");
 
 const navLinks=document.querySelector(".nav-links");
 
